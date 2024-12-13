@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports News Today</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+
+        color: white;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    footer {
+        text-align: center;
+        font-size: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .post {
+        margin-bottom: 40px;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+    }
+
+    .post h2 {
+        color: #ffffff;
+    }
+
+    .post img {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .post {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.post-actions button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.post-stats {
+    font-size: 12px;
+}
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #618fd9, #a0bbc8); /* Soft light blue gradient */
+            background-size: cover;
+            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #000000;
+            color: white;
+            padding: 0.5rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .sidebar a:hover {
+            color: #fffae6; /* Light yellow on hover */
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px); /* Adjust width to make space for sidebar */
+        }
+
+        .btn-custom {
+            background-color: rgb(0, 0, 0);
+        }
+
+        .create-post-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white; /* White background for form for contrast */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-card {
+            border: 2px solid #e5e7eb; /* Light gray border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            margin-bottom: 2rem;
+            background-color: #fff;
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+            border-radius: 8px; /* Rounded corners for posts */
+            cursor: pointer; /* Indicates clickable */
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+
+        .post-card:hover {
+            transform: scale(1.02);
+        }
+
+        .post-card.selected {
+            transform: scale(1.1); /* Zoom in effect */
+            background-color: rgba(255, 255, 255, 0.8); /* Highlight with a slight white background */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+        }
+
+        .latest-posts-section {
+            margin-top: 3rem;
+        }
+
+        .post-category {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #4B5563; /* Dark Gray */
+        }
+
+        .post-subject {
+            font-size: 1.75rem;
+            color: #333; /* Darker Gray */
+            margin-top: 0.5rem;
+        }
+
+        .post-message {
+            font-size: 1.125rem;
+            margin-top: 1rem;
+            color: #555; /* Medium Gray */
+        }
+
+        .post-info {
+            font-size: 0.875rem;
+            color: #888;
+            margin-top: 1rem;
+        }
+
+        .post-info .timestamp {
+            color: #aaa;
+        }
+
+        .interaction-buttons {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+
+        .interaction-buttons button {
+            background-color: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .interaction-buttons button:hover {
+            background-color: #cbd5e0;
+        }
+
+        nav {
+            background-color: #000000;
+            padding: 1rem;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .file-links {
+            margin-top: 1rem;
+        }
+
+        .file-links a {
+            color: #4B5563;
+            font-size: 1rem;
+            text-decoration: underline;
+        }
+   
+        .news-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.news-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#moreInfo {
+  margin-top: 10px;
+}
+</style>
+<body>
+
+    <div class="sidebar">
+        <a class="hover:underline" href="landingpage.html">Home </a>
+        <a class="hover:underline" href="profile1.html">Profile</a>
+        <h2 class="text-2xl font-bold text-center mb-6">Trending</h2>
+        <a class="block mb-2 text-custom hover:underline" href="tech.html">#Tech </a>
+        <a class="block mb-2 text-custom hover:underline" href="Science.html">#Science</a>
+        <a class="block mb-2 text-custom hover:underline" href="Arts.html">#Arts </a>
+        <a class="block mb-2 text-custom hover:underline" href="Sports.html">#Sports </a>
+       
+  
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+         <!-- Navigation Bar -->
+         <nav class="bg-black p-4 text-white flex justify-between items-center">
+            <h1 class="text-3xl font-bold"> Student Discussion Hub </h1>
+            <div class="space-x-4">
+           
+            </div>
+           </nav>
+
+    <header>
+        <h1>Sports News Today</h1>
+    </header>
+
+    <main>
+        <!-- Post 1 -->
+        <div class="post">
+            <h2>Messi Leads Argentina to World Cup Victory</h2>
+            <img src="img/messi.jpg" alt="Messi celebrating World Cup victory">
+            <p>Lionel Messi led Argentina to a thrilling World Cup victory, capping off a remarkable tournament with a stunning performance. The Argentine captain scored two goals in the final, including the winning penalty, as his team defeated France in a dramatic penalty shootout.</p>
+            <p>Messi's performance throughout the tournament was nothing short of legendary, as he inspired his team to overcome adversity and reach the final. His goal-scoring prowess and exceptional playmaking abilities made him the undisputed star of the tournament.</p>
+            <p>Argentina's victory marks a historic moment for the nation and its passionate football fans. Messi's World Cup triumph solidifies his place as one of the greatest footballers of all time.</p>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post">
+            <h2>LeBron James Breaks Another Record</h2>
+            <img src="img/lebron.jpg" alt="LeBron James breaking a record">
+            <p>LeBron James continues to solidify his legacy in the NBA, surpassing yet another milestone in his career. In a game against the Boston Celtics, LeBron scored 40 points, breaking the record for most career points in the history of the league.</p>
+            <p>Fans and fellow athletes alike have been in awe of LeBron's ability to continue performing at the highest level, defying age and physical expectations. His achievements over the years make him a candidate for the greatest of all time in basketball.</p>
+            <p>As he continues to break records, the basketball world eagerly awaits what’s next for this living legend.</p>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post">
+            <h2>Usain Bolt Announces Retirement from Competitive Racing</h2>
+            <img src="img/usain.jpg" alt="Usain Bolt running in a race">
+            <p>Usain Bolt, the fastest man in the world, has announced his official retirement from competitive athletics. Bolt, who holds the world record in both the 100m and 200m, will leave behind a legacy of dominance in sprinting.</p>
+            <p>Throughout his career, Bolt won 8 Olympic gold medals and became a global icon for his electrifying performances. Fans around the world celebrated his achievements, and his departure marks the end of an era in track and field.</p>
+            <p>While Bolt has stepped away from competitive racing, his influence on the sport and his larger-than-life personality will continue to inspire future generations of athletes.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Sports News Today</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Student Discussion Hub
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.bg-custom {
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+.text-custom {
+    color: rgb(125, 125, 235);
+}
+.border-custom {
+    border-color: rgb(125, 125, 235);
+}
+.btn-custom {
+    background-color: rgb(125, 125, 235);
+}
+.underline-input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    width: 100%;
+    padding: 8px 0;
+    margin-bottom: 16px;
+}
+.underline-input:focus {
+    border-bottom-color: rgb(125, 125, 235);
+}
+</style>
+ </head>
+ <body class="bg-gray-100">
+  <!-- Main Container -->
+  <div class="min-h-screen" id="landingPage">
+   <!-- Navigation Bar -->
+   <nav class="bg-black p-4 text-white flex justify-between items-center">
+    <h1 class="text-3xl font-bold"> Student Discussion Hub </h1>
+    <div class="space-x-4">
+     <a class="hover:underline" href="landing.html"> Home </a>
+     <a class="hover:underline" href="profile1.html"> Profile </a>
+    </div>
+   </nav>
+   <div class="container mx-auto mt-4">
+    <h3 class="text-2xl font-bold mb-4 text-white" id="welcomeMessage">
+    </h3>
+   </div>
+   <div class="container mx-auto flex flex-col lg:flex-row mt-8">
+    <!-- Sidebar -->
+    <div class="w-full lg:w-1/4 bg-white p-4 rounded shadow-md mb-4 lg:mb-0">
+     <h2 class="text-xl font-bold mb-4">
+      Categories
+     </h2>
+     <a class="block mb-2 text-custom hover:underline" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
+      Tech
+     </a>
+     <a class="block mb-2 text-custom hover:underline" href="#">
+      Science
+     </a>
+     <a class="block mb-2 text-custom hover:underline" href="#">
+      Arts
+     </a>
+     <a class="block mb-2 text-custom hover:underline" href="#">
+      Sports
+     </a>
+    </div>
+    <!-- Newsfeed Section -->
+    <div class="w-full lg:w-3/4 lg:ml-8" id="newsfeedSection">
+     <!-- Create Post Form -->
+     <div class="container mx-auto mt-8">
+      <h2 class="text-2xl font-bold mb-4 text-black">
+       Create a New Post
+      </h2>
+      <div class="bg-white p-4 rounded shadow-md">
+       <select class="w-full p-2 border border-gray-300 rounded mb-4" id="postCategory" required="">
+        <option disabled="" selected="" value="">
+         Select Category
+        </option>
+        <option value="Tech">
+         Tech
+        </option>
+        <option value="Science">
+         Science
+        </option>
+        <option value="Arts">
+         Arts
+        </option>
+        <option value="Sports">
+         Sports
+        </option>
+       </select>
+       <textarea class="w-full p-2 border border-gray-300 rounded mb-4" id="postMessage" placeholder="Write your post..." required="" rows="5"></textarea>
+       <button class="w-full btn-custom text-white p-2 rounded" onclick="createPost()">
+        Post
+       </button>
+      </div>
+     </div>
+     <h2 class="text-2xl font-bold mb-4 mt-8 text-black">
+      Latest Posts
+     </h2>
+     <div id="postContainer">
+      <!-- Example Post -->
+      <div class="bg-white p-4 rounded shadow-md mb-4">
+       <h4 class="font-semibold">
+        Tech
+       </h4>
+       <p>
+        This is an example post about technology.
+       </p>
+       <div class="mt-2">
+        <button class="mr-4" onclick="likePost(this)">
+         Like (0)
+        </button>
+        <button class="mr-4" onclick="commentPost(this)">
+         Comment (0)
+        </button>
+        <button onclick="sharePost(this)">
+         Share (0)
+        </button>
+       </div>
+      </div>
+      <div class="bg-white p-4 rounded shadow-md mb-4">
+       <h4 class="font-semibold">
+        Science
+       </h4>
+       <p>
+        This is an example post about science.
+       </p>
+       <div class="mt-2">
+        <button class="mr-4" onclick="likePost(this)">
+         Like (0)
+        </button>
+        <button class="mr-4" onclick="commentPost(this)">
+         Comment (0)
+        </button>
+        <button onclick="sharePost(this)">
+         Share (0)
+        </button>
+       </div>
+      </div>
+      <div class="bg-white p-4 rounded shadow-md mb-4">
+       <h4 class="font-semibold">
+        Arts
+       </h4>
+       <p>
+        This is an example post about arts.
+       </p>
+       <div class="mt-2">
+        <button class="mr-4" onclick="likePost(this)">
+         Like (0)
+        </button>
+        <button class="mr-4" onclick="commentPost(this)">
+         Comment (0)
+        </button>
+        <button onclick="sharePost(this)">
+         Share (0)
+        </button>
+       </div>
+      </div>
+      <div class="bg-white p-4 rounded shadow-md mb-4">
+       <h4 class="font-semibold">
+        Sports
+       </h4>
+       <p>
+        This is an example post about sports.
+       </p>
+       <div class="mt-2">
+        <button class="mr-4" onclick="likePost(this)">
+         Like (0)
+        </button>
+        <button class="mr-4" onclick="commentPost(this)">
+         Comment (0)
+        </button>
+        <button onclick="sharePost(this)">
+         Share (0)
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ 
+  <script>
+   const loginPage = document.getElementById('loginPage');
+        const signUpPage = document.getElementById('signUpPage');
+        const landingPage = document.getElementById('landingPage');
+        const profilePage = document.getElementById('profilePage');
+        const loginUsername = document.getElementById('loginUsername');
+        const loginPassword = document.getElementById('loginPassword');
+        const loginButton = document.getElementById('loginButton');
+        const signUpFirstName = document.getElementById('signUpFirstName');
+        const signUpLastName = document.getElementById('signUpLastName');
+        const signUpBirthday = document.getElementById('signUpBirthday');
+        const signUpGender = document.getElementById('signUpGender');
+        const signUpMobile = document.getElementById('signUpMobile');
+        const signUpUsername = document.getElementById('signUpUsername');
+        const signUpPassword = document.getElementById('signUpPassword');
+        const signUpButton = document.getElementById('signUpButton');
+        const showSignUp = document.getElementById('showSignUp');
+        const showLogin = document.getElementById('showLogin');
+        const profileLink = document.getElementById('profileLink');
+        const profileUsername = document.getElementById('profileUsername');
+        const profileEmail = document.getElementById('profileEmail');
+        const profileBio = document.getElementById('profileBio');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+
+        showSignUp.addEventListener('click', function () {
+            loginPage.classList.add('hidden');
+            signUpPage.classList.remove('hidden');
+        });
+
+        showLogin.addEventListener('click', function () {
+            signUpPage.classList.add('hidden');
+            loginPage.classList.remove('hidden');
+        });
+
+        loginButton.addEventListener('click', function () {
+            const username = loginUsername.value.trim();
+            const password = loginPassword.value.trim();
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+
+            localStorage.setItem('username', username);
+            loginPage.classList.add('hidden');
+            landingPage.classList.remove('hidden');
+            welcomeMessage.textContent = `Welcome, ${username}!`;
+        });
+
+        signUpButton.addEventListener('click', function () {
+            const firstName = signUpFirstName.value.trim();
+            const lastName = signUpLastName.value.trim();
+            const birthday = signUpBirthday.value.trim();
+            const gender = signUpGender.value.trim();
+            const mobile = signUpMobile.value.trim();
+            const username = signUpUsername.value.trim();
+            const password = signUpPassword.value.trim();
+            if (!firstName || !lastName || !birthday || !gender || !mobile || !username || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            localStorage.setItem('username', username);
+            signUpPage.classList.add('hidden');
+            loginPage.classList.remove('hidden');
+        });
+
+        profileLink.addEventListener('click', function () {
+            landingPage.classList.add('hidden');
+            profilePage.classList.remove('hidden');
+        });
+
+        function createPost() {
+            const postCategory = document.getElementById('postCategory').value;
+            const postMessage = document.getElementById('postMessage').value;
+            if (!postCategory || !postMessage) {
+                alert('Please select a category and write a message');
+                return;
+            }
+
+            const postContainer = document.getElementById('postContainer');
+            const newPost = document.createElement('div');
+            newPost.classList.add('bg-white', 'p-4', 'rounded', 'shadow-md', 'mb-4');
+            newPost.innerHTML = `
+                <h4 class="font-semibold">${postCategory}</h4>
+                <p>${postMessage}</p>
+                <div class="mt-2">
+                    <button class="mr-4" onclick="likePost(this)">Like (0)</button>
+                    <button class="mr-4" onclick="commentPost(this)">Comment (0)</button>
+                    <button onclick="sharePost(this)">Share (0)</button>
+                </div>
+            `;
+            postContainer.appendChild(newPost);
+        }
+
+        function likePost(button) {
+            const count = parseInt(button.textContent.match(/\d+/)[0]) + 1;
+            button.textContent = `Like (${count})`;
+        }
+
+        function commentPost(button) {
+            const count = parseInt(button.textContent.match(/\d+/)[0]) + 1;
+            button.textContent = `Comment (${count})`;
+        }
+
+        function sharePost(button) {
+            const count = parseInt(button.textContent.match(/\d+/)[0]) + 1;
+            button.textContent = `Share (${count})`;
+        }
+
+        
+  </script>
+ </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Student Forum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"/>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .bg-custom {
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+      }
+      .text-custom {
+        color: rgb(52, 52, 226);
+      }
+      .border-custom {
+        border-color: rgb(125, 125, 235);
+      }
+      .btn-custom {
+        background-color: rgb(0, 0, 0);
+      }
+      .underline-input {
+        border: none;
+        border-bottom: 2px solid #ccc;
+        outline: none;
+        width: 100%;
+        padding: 8px 0;
+        margin-bottom: 16px;
+      }
+      .underline-input:focus {
+        border-bottom-color: rgb(125, 125, 235);
+      }
+    </style>
+  </head>
+  <body class="bg-custom">
+    <!-- Login Page -->
+    <div class="flex items-center justify-center min-h-screen bg-custom" id="loginPage">
+      <div class="bg-white p-8 rounded shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-6">Login to Student Forum</h2>
+        <input
+          class="underline-input"
+          id="loginUsername"
+          placeholder="Enter your username"
+          required=""
+          type="text"
+        />
+        <input
+          class="underline-input"
+          id="loginPassword"
+          placeholder="Enter your password"
+          required=""
+          type="password"
+        />
+        <button class="w-full btn-custom text-white p-2 rounded mb-4" id="loginButton">
+          Login
+        </button>
+        <p class="text-center">
+          Don't have an account?
+          <a class="text-custom hover:underline" href="#" id="showSignUp">Sign Up</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Sign Up Page -->
+    <div class="flex items-center justify-center min-h-screen bg-custom hidden" id="signUpPage">
+      <div class="bg-white p-8 rounded shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-6">Create a New Account</h2>
+        <input
+          class="underline-input"
+          id="signUpFirstName"
+          placeholder="First Name"
+          required=""
+          type="text"
+        />
+        <input
+          class="underline-input"
+          id="signUpLastName"
+          placeholder="Last Name"
+          required=""
+          type="text"
+        />
+        <input
+          class="underline-input"
+          id="signUpBirthday"
+          placeholder="Birthday (YYYY-MM-DD)"
+          required=""
+          type="date"
+        />
+        <select class="underline-input" id="signUpGender" required="">
+          <option disabled="" selected="" value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <input
+          class="underline-input"
+          id="signUpMobile"
+          placeholder="Mobile Phone"
+          required=""
+          type="tel"
+        />
+        <input
+          class="underline-input"
+          id="signUpUsername"
+          placeholder="Choose a username"
+          required=""
+          type="text"
+        />
+        <input
+          class="underline-input"
+          id="signUpPassword"
+          placeholder="Choose a password"
+          required=""
+          type="password"
+        />
+        <button class="w-full btn-custom text-white p-2 rounded mb-4" id="signUpButton">
+          Sign Up
+        </button>
+        <p class="text-center">
+          Already have an account?
+          <a class="text-custom hover:underline" href="#" id="showLogin">Login</a>
+        </p>
+      </div>
+ </div>
+
+    <script type="module">
+      // Import Firebase SDK
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyC0_873OIFabR44Mm0LYVXN51AVXdTJ0Y8",
+        authDomain: "studentforum-5cc31.firebaseapp.com",
+        projectId: "studentforum-5cc31",
+        storageBucket: "studentforum-5cc31.firebasestorage.app",
+        messagingSenderId: "892326341062",
+        appId: "1:892326341062:web:dc34777460c1fd89bfaac7"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      // Elements
+      const loginPage = document.getElementById("loginPage");
+      const signUpPage = document.getElementById("signUpPage");
+      const landingPage = document.getElementById("landingPage");
+      const loginUsername = document.getElementById("loginUsername");
+      const loginPassword = document.getElementById("loginPassword");
+      const loginButton = document.getElementById("loginButton");
+      const signUpFirstName = document.getElementById("signUpFirstName");
+      const signUpLastName = document.getElementById("signUpLastName");
+      const signUpBirthday = document.getElementById("signUpBirthday");
+      const signUpGender = document.getElementById("signUpGender");
+      const signUpMobile = document.getElementById("signUpMobile");
+      const signUpUsername = document.getElementById("signUpUsername");
+      const signUpPassword = document.getElementById("signUpPassword");
+      const signUpButton = document.getElementById("signUpButton");
+      const showSignUp = document.getElementById("showSignUp");
+      const showLogin = document.getElementById("showLogin");
+      const profileLink = document.getElementById("profileLink");
+      const profileUsername = document.getElementById("profileUsername");
+      const profileEmail = document.getElementById("profileEmail");
+      const profileBio = document.getElementById("profileBio");
+      const welcomeMessage = document.getElementById("welcomeMessage");
+
+      // Show Sign-Up page
+      showSignUp.addEventListener("click", function () {
+        loginPage.classList.add("hidden");
+        signUpPage.classList.remove("hidden");
+      });
+
+      // Show Login page
+      showLogin.addEventListener("click", function () {
+        signUpPage.classList.add("hidden");
+        loginPage.classList.remove("hidden");
+      });
+
+      // Handle Sign-Up
+      signUpButton.addEventListener("click", function () {
+        const firstName = signUpFirstName.value.trim();
+        const lastName = signUpLastName.value.trim();
+        const birthday = signUpBirthday.value.trim();
+        const gender = signUpGender.value.trim();
+        const mobile = signUpMobile.value.trim();
+        const username = signUpUsername.value.trim();
+        const password = signUpPassword.value.trim();
+
+        if (!firstName || !lastName || !birthday || !gender || !mobile || !username || !password) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        // Save data to Firebase Realtime Database
+        set(ref(db, 'users/' + username), {
+          username: username,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          birthday: birthday,
+          gender: gender,
+          mobile: mobile,
+        }).then(() => {
+          alert("Account created successfully!");
+          signUpPage.classList.add("hidden");
+          loginPage.classList.remove("hidden");
+        }).catch((error) => {
+          console.error("Error writing to Firebase:", error);
+          alert("Error creating account");
+        });
+      });
+
+      // Handle Login
+      loginButton.addEventListener("click", function () {
+        const username = loginUsername.value.trim();
+        const password = loginPassword.value.trim();
+
+        if (!username || !password) {
+          alert("Please enter both username and password");
+          return;
+        }
+
+        // Check if username exists in Firebase
+        get(ref(db, 'users/' + username)).then((snapshot) => {
+          if (snapshot.exists()) {
+            const userData = snapshot.val();
+            if (userData.password === password) {
+              alert("Login successful!");
+ 	            window.location.href = "landingpage.html";
+              localStorage.setItem("username", username);
+              loginPage.classList.add("hidden");
+              landingPage.classList.remove("hidden");
+              welcomeMessage.textContent = Welcome, 'username';
+            } else {
+              alert("Incorrect password");
+            }
+          } else {
+            alert("Username not found");
+          }
+        }).catch((error) => {
+          console.error("Error reading from Firebase:", error);
+        });
+      });
+
+      // Show user profile
+      profileLink.addEventListener("click", function () {
+        const username = localStorage.getItem("username");
+        if (username) {
+          get(ref(db, 'users/' + username)).then((snapshot) => {
+            if (snapshot.exists()) {
+              const userData = snapshot.val();
+              profileUsername.textContent = userData.firstName + " " + userData.lastName;
+              profileEmail.textContent = userData.username;
+              landingPage.classList.add("hidden");
+              document.getElementById("profilePage").classList.remove("hidden");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

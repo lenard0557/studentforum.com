@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Generated Art Wins Top Prize at Prestigious Art Competition</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        header {
+       
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            text-align: center;
+        }
+        
+        main {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        main h2 {
+            color: #333;
+        }
+        
+        main img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        main p {
+            margin: 10px 0;
+        }
+        
+        section {
+            background-color: #e1dcdc;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        
+        article {
+            margin-bottom: 15px;
+        }
+        
+        article h4 {
+            color: #333;
+        }
+        
+        article p {
+            color: #000000;
+        }
+        
+        article a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        
+        article a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #000000;
+            color: white;
+            margin-top: 20px;
+        }
+        
+    .post {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.post-actions button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.post-stats {
+    font-size: 12px;
+}
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #618fd9, #a0bbc8); /* Soft light blue gradient */
+            background-size: cover;
+            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #000000;
+            color: white;
+            padding: 0.5rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .sidebar a:hover {
+            color: #fffae6; /* Light yellow on hover */
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px); /* Adjust width to make space for sidebar */
+        }
+
+        .btn-custom {
+            background-color: rgb(0, 0, 0);
+        }
+
+        .create-post-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white; /* White background for form for contrast */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-card {
+            border: 2px solid #e5e7eb; /* Light gray border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            margin-bottom: 2rem;
+            background-color: #fff;
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+            border-radius: 8px; /* Rounded corners for posts */
+            cursor: pointer; /* Indicates clickable */
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+
+        .post-card:hover {
+            transform: scale(1.02);
+        }
+
+        .post-card.selected {
+            transform: scale(1.1); /* Zoom in effect */
+            background-color: rgba(255, 255, 255, 0.8); /* Highlight with a slight white background */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+        }
+
+        .latest-posts-section {
+            margin-top: 3rem;
+        }
+
+        .post-category {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #4B5563; /* Dark Gray */
+        }
+
+        .post-subject {
+            font-size: 1.75rem;
+            color: #333; /* Darker Gray */
+            margin-top: 0.5rem;
+        }
+
+        .post-message {
+            font-size: 1.125rem;
+            margin-top: 1rem;
+            color: #555; /* Medium Gray */
+        }
+
+        .post-info {
+            font-size: 0.875rem;
+            color: #888;
+            margin-top: 1rem;
+        }
+
+        .post-info .timestamp {
+            color: #aaa;
+        }
+
+        .interaction-buttons {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+
+        .interaction-buttons button {
+            background-color: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .interaction-buttons button:hover {
+            background-color: #cbd5e0;
+        }
+
+        nav {
+            background-color: #000000;
+            padding: 1rem;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .file-links {
+            margin-top: 1rem;
+        }
+
+        .file-links a {
+            color: #4B5563;
+            font-size: 1rem;
+            text-decoration: underline;
+        }
+   
+        .news-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.news-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#moreInfo {
+  margin-top: 10px;
+}
+
+</style>
+<body>
+    
+    <div class="sidebar">
+        <a class="hover:underline" href="landingpage.html">Home </a>
+        <a class="hover:underline" href="profile1.html">Profile</a>
+        <h2 class="text-2xl font-bold text-center mb-6">Trending</h2>
+        <a class="block mb-2 text-custom hover:underline" href="tech.html">#Tech </a>
+        <a class="block mb-2 text-custom hover:underline" href="Science.html">#Science</a>
+        <a class="block mb-2 text-custom hover:underline" href="Arts.html">#Arts </a>
+        <a class="block mb-2 text-custom hover:underline" href="Sports.html">#Sports </a>
+       
+     
+  
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+         <!-- Navigation Bar -->
+         <nav class="bg-black p-4 text-white flex justify-between items-center">
+            <h1 class="text-3xl font-bold"> Student Discussion Hub </h1>
+            <div class="space-x-4">
+           
+            </div>
+           </nav>
+   
+</head>
+<body>
+    <header>
+        <h1>Arts News Today</h1>
+    </header>
+    <main>
+        <h2>AI-Generated Art Wins Top Prize at Prestigious Art Competition</h2>
+        <img src="img/monalisa.jpg" alt="AI-Generated Art"  width="1200" height="500">
+        <p>In a groundbreaking moment for the art world, an AI-generated artwork has claimed the top prize at a prestigious art competition. This unprecedented victory has sparked intense debate about the nature of creativity, the role of technology in art, and the future of artistic expression.</p>
+
+        <p>The winning artwork, a stunning abstract piece, was created using a sophisticated AI algorithm trained on a vast dataset of human-created art. The AI was able to generate original and innovative pieces that defied traditional artistic boundaries.</p>
+
+        <p>While some artists and critics have expressed concern about the potential impact of AI on the art world, others view it as a new tool for artistic expression. As AI technology continues to advance, it is likely that we will see even more remarkable and thought-provoking AI-generated art in the years to come.</p>
+
+        <section>
+            <h3>Related Posts</h3>
+            <article>
+                <h4>The Role of AI in Modern Art</h4>
+                <p>Explore how artificial intelligence is transforming artistic techniques and inspiring creators worldwide.</p>
+                <a href="https://fadmagazine.com/2024/06/01/the-role-of-artificial-intelligence-in-todays-art/">Read More</a>
+            </article>
+            <article>
+                <h4>Top 10 AI-Generated Artworks of the Year</h4>
+                <p>A curated list of the most groundbreaking AI-generated art pieces that captivated audiences this year.</p>
+                <a href="https://industrywired.com/top-10-ai-generated-art-masterpieces/">Read More</a>
+            </article>
+            <article>
+                <h4>Debate: Can AI Truly Be Creative?</h4>
+                <p>An in-depth look into the ongoing debate about whether AI can replicate human creativity.</p>
+                <a href="https://medium.com/@yagnesh.pandya/can-ai-truly-be-creative-explore-recent-advancements-in-ai-generated-art-music-and-literature-1ad152f44ac7">Read More</a>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Arts News Today</p>
+    </footer>
+</body>
+</html>
